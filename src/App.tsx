@@ -1,6 +1,5 @@
-import './App.scss'
+import './App.scss';
 
-export const  App = () => {
-
-  return null
-}
+export const App = () => {
+  return null;
+};
