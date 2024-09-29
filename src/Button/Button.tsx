@@ -1,10 +1,9 @@
-import { PropsWithChildren } from 'react';
-import styles from './button.module.scss';
 
-type ButtonProps = PropsWithChildren<{
+type ButtonProps = {
   text?: string;
-}>;
+  className?: string
+};
 
-export const Button = ({ text }: ButtonProps) => {
-  return <button className={`${styles.button}`}>{text}</button>;
+export const Button = ({ text, className }: ButtonProps) => {
+  return <button className={`${className}`}>{text}</button>;
 };
