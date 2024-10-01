@@ -10,7 +10,7 @@ export const Stopwatch = () => {
 
   useEffect(() => {
     const intervalTT = setInterval(() => {
-      setTotalTime(prev => prev + 10);
+      setTotalTime(prev => prev + 100);
     }, 10);
 
     return () => clearInterval(intervalTT);
@@ -19,15 +19,18 @@ export const Stopwatch = () => {
   useEffect(() => {
     const intervalLT = setInterval(() => {
       setLapTime(prev => prev + 10);
-    }, 10);
+    }, 100);
 
     return () => clearInterval(intervalLT);
   }, []);
 
   return (
     <>
-      <TimeDisplay totalTime={totalTime} lapTime={lapTime}/>
       <div className={stopwatchStyles.stopwatch}>
+        <TimeDisplay
+          totalTime={totalTime}
+          lapTime={lapTime}
+        />
         <div className={stopwatchStyles.buttonsLayout}>
           <Button
             className={buttonStyles.start}
