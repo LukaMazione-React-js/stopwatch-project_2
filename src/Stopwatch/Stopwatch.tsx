@@ -29,17 +29,17 @@ export const Stopwatch = () => {
       <TimeDisplay />
       <div className={stopwatchStyles.stopwatch}>
         <div className={stopwatchStyles.buttonsLayout}>
-          <Button
+          <Buton
             className={buttonStyles.start}
             text='START'
           />
-          <Button
+          <Buton
             className={buttonStyles.stop}
             text='STOP'
           />
           <Button
             className={buttonStyles.lap}
-            text='LAP'
+            tet='LAP'
           />
         </div>
       </div>
