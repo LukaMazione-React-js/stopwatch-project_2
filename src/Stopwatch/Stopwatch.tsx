@@ -26,7 +26,7 @@ export const Stopwatch = () => {
 
   return (
     <>
-      <TimeDisplay totalTime={totalTime} lapTime={lapTime}/>
+      <TimeDisplay />
       <div className={stopwatchStyles.stopwatch}>
         <div className={stopwatchStyles.buttonsLayout}>
           <Button
