@@ -1,9 +1,10 @@
 import { Button } from '../Button/Button';
 import stopwatchStyles from './stopwatch.module.scss';
 import buttonStyles from '../Button/button.module.scss';
-import { TimeDisplay } from '../TimeDisplay';
 import { useState, useEffect } from 'react';
 import { LapsTable } from '../LapsTable';
+import { TotalTime } from '../TimeDisplay/TotalTime';
+import { LapTime } from '../TimeDisplay/LapTime';
 
 export const Stopwatch = () => {
   const [totalTime, setTotalTime] = useState(0);
@@ -22,29 +23,24 @@ export const Stopwatch = () => {
     return () => clearInterval(intervalTT);
   }, [isRunning]);
 
-
   const startHandle = () => {
-     setIsRunning(true);
+    setIsRunning(true);
   };
   const stopHandle = () => {
-     setIsRunning(false);
+    setIsRunning(false);
   };
 
-  const lapHandle = () => {
+  const lapHandle = () => {};
 
-  }
-  
   const resetHandle = () => {
     setTotalTime(0);
-    setLapTime(0)
-  }
+    setLapTime(0);
+  };
   return (
     <>
       <div className={stopwatchStyles.stopwatch}>
-        <TimeDisplay
-          totalTime={totalTime}
-          lapTime={lapTime}
-        />
+        <TotalTime totalTime={totalTime} />
+        <LapTime lapTime={lapTime} />
         <div className={stopwatchStyles.buttonsLayout}>
           <Button
             onClick={startHandle}
@@ -61,12 +57,12 @@ export const Stopwatch = () => {
             className={buttonStyles.lap}
             text='LAP'
           />
-          </div> 
-          <Button
+        </div>
+        <Button
           onClick={resetHandle}
           className={buttonStyles.reset}
           text='RESET'
-          />
+        />
       </div>
       <LapsTable lapTime={lapTime} />
     </>
