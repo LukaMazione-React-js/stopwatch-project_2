@@ -1,10 +1,9 @@
-import { Button } from '../Button/Button';
 import stopwatchStyles from './stopwatch.module.scss';
-import buttonStyles from '../Button/button.module.scss';
 import { useState, useEffect } from 'react';
 import { LapsTable } from '../Laps/LapsTable';
 import { TotalTime } from '../TimeDisplay/TotalTime';
 import { LapTime } from '../TimeDisplay/LapTime';
+import { ButtonsComponent } from '../Button/ButtonsComponent';
 
 export type Laps = {
   lapNr: number;
@@ -51,28 +50,7 @@ export const Stopwatch = () => {
       <div className={stopwatchStyles.stopwatch}>
         <TotalTime totalTime={totalTime} />
         <LapTime lapTime={lapTime} />
-        <div className={stopwatchStyles.buttonsLayout}>
-          <Button
-            onClick={startHandle}
-            className={buttonStyles.start}
-            text='START'
-          />
-          <Button
-            onClick={stopHandle}
-            className={buttonStyles.stop}
-            text='STOP'
-          />
-          <Button
-            onClick={lapHandle}
-            className={buttonStyles.lap}
-            text='LAP'
-          />
-        </div>
-        <Button
-          onClick={resetHandle}
-          className={buttonStyles.reset}
-          text='RESET'
-        />
+        <ButtonsComponent startHandle={startHandle} stopHandle={stopHandle} lapHandle={lapHandle} resetHandle={resetHandle}/>
       </div>
       <LapsTable lapsTable={lapsTable} />
     </>
