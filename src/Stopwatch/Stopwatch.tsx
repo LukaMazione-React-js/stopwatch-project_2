@@ -2,14 +2,20 @@ import { Button } from '../Button/Button';
 import stopwatchStyles from './stopwatch.module.scss';
 import buttonStyles from '../Button/button.module.scss';
 import { useState, useEffect } from 'react';
-import { LapsTable } from '../LapsTable';
+import { LapsTable } from '../Laps/LapsTable';
 import { TotalTime } from '../TimeDisplay/TotalTime';
 import { LapTime } from '../TimeDisplay/LapTime';
+
+export type Laps = {
+  lapNr: number;
+  lapTime: number;
+};
 
 export const Stopwatch = () => {
   const [totalTime, setTotalTime] = useState(0);
   const [lapTime, setLapTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [lapsTable, setLapsTable] = useState<Laps[]>([]);
 
   useEffect(() => {
     let intervalTT: number;
@@ -30,11 +36,15 @@ export const Stopwatch = () => {
     setIsRunning(false);
   };
 
-  const lapHandle = () => {};
+  const lapHandle = () => {
+    setLapsTable(prev => [...prev, { lapNr: prev.length + 1, lapTime }]);
+    setLapTime(0);
+  };
 
   const resetHandle = () => {
     setTotalTime(0);
     setLapTime(0);
+    setLapsTable([]);
   };
   return (
     <>
@@ -64,7 +74,7 @@ export const Stopwatch = () => {
           text='RESET'
         />
       </div>
-      <LapsTable lapTime={lapTime} />
+      <LapsTable lapsTable={lapsTable} />
     </>
   );
 };
