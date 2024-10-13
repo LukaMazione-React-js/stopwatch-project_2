@@ -1,4 +1,13 @@
 :root {
+  --table-bg: #f9f9f9;
+  --thead-bg: #1a1a1a;
+  --thead-color: white;
+  --border-color: #ccc;
+  --row-bg: #e9e9e9;
+  --row-bg-alt: #f4f4f4;
+  --text-color: #333;
+  --text-secondary: #666;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -25,8 +34,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  // justify-content: center;
-  // align-items: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -40,6 +47,14 @@ h1 {
 
 @media (prefers-color-scheme: light) {
   :root {
+    --table-bg: #ffffff;
+    --thead-bg: #f1f1f1;
+    --thead-color: #333;
+    --border-color: #ddd;
+    --row-bg: #f9f9f9;
+    --row-bg-alt: #eeeeee;
+    --text-color: #000;
+    --text-secondary: #555;
     color: #213547;
     background-color: #ffffff;
   }
@@ -53,6 +68,15 @@ h1 {
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --table-bg: #1c1e22;
+    --thead-bg: #383c41;
+    --thead-color: #e0e6ed;
+    --border-color: #3a3f47;
+    --row-bg: #2a2e35;
+    --row-bg-alt: #30333a;
+    --text-color: #e0e6ed;
+    --text-secondary: #c0c6cd;
+
     color: #e0e6ed;
     background-color: #1c1e22;
   }
@@ -64,7 +88,6 @@ h1 {
     color: #e0e6ed;
     border: 1px solid #3a3f47;
   }
-  button:hover {
-    background-color: #3a3f47;
-  }
+  
+  
 }

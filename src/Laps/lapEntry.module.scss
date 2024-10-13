@@ -1,0 +1,17 @@
+.tableRow {
+  &:nth-child(even) {
+    background-color: var(--row-bg);
+  }
+
+  &:nth-child(odd) {
+    background-color: var(--row-bg-alt);
+  }
+
+  td {
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+  }
+}

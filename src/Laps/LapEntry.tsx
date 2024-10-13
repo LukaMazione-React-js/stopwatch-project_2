@@ -1,19 +1,20 @@
 import { Laps } from '../Stopwatch/Stopwatch';
 import { formatTime } from '../utils/formatTime';
 
-type LapsTableProps = {
-  lapsTable: Laps[];
+import styles from './lapsTable.module.scss'
+
+type LapEntryProps = {
+  lap: Laps;
 };
 
-export const LapEntry = ({ lapsTable }: LapsTableProps) => {
+export const LapEntry = ({ lap }: LapEntryProps) => {
+  const formattedLapTime = formatTime(lap.lapTime)
   return (
     <>
-      {lapsTable.map(lap => (
-        <tr>
-          <td>{lap.lapNr}</td>
-          <td>{formatTime(lap.lapTime)}</td>
-        </tr>
-      ))}
+      <tr className={styles.tableRow}>
+        <td>{lap.lapNr}</td>
+        <td>{formattedLapTime}</td>
+      </tr>
     </>
   );
 };
