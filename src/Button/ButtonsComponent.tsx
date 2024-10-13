@@ -3,13 +3,20 @@ import buttonStyles from '../Button/button.module.scss';
 import stopwatchStyles from '../Stopwatch/stopwatch.module.scss';
 
 type ButtoncComponentProps = {
+  isLapOn: boolean;
   startHandle: () => void;
   stopHandle: () => void;
   lapHandle: () => void;
   resetHandle: () => void;
 };
 
-export const ButtonsComponent = ({startHandle, stopHandle, lapHandle, resetHandle}: ButtoncComponentProps) => {
+export const ButtonsComponent = ({
+  startHandle,
+  stopHandle,
+  lapHandle,
+  resetHandle,
+  isLapOn,
+}: ButtoncComponentProps) => {
   return (
     <>
       <div className={stopwatchStyles.buttonsLayout}>
@@ -27,6 +34,7 @@ export const ButtonsComponent = ({startHandle, stopHandle, lapHandle, resetHandl
           onClick={lapHandle}
           className={buttonStyles.lap}
           text='LAP'
+          disabled={isLapOn}
         />
       </div>
       <Button

@@ -4,6 +4,7 @@ import { LapsTable } from '../Laps/LapsTable';
 import { TotalTime } from '../TimeDisplay/TotalTime';
 import { LapTime } from '../TimeDisplay/LapTime';
 import { ButtonsComponent } from '../Button/ButtonsComponent';
+import { Summary } from '../Summary/Summary';
 
 export type Laps = {
   lapNr: number;
@@ -15,6 +16,7 @@ export const Stopwatch = () => {
   const [lapTime, setLapTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [lapsTable, setLapsTable] = useState<Laps[]>([]);
+  const [isLapOn, setIsLapOn] = useState(true);
 
   useEffect(() => {
     let intervalTT: number;
@@ -30,9 +32,12 @@ export const Stopwatch = () => {
 
   const startHandle = () => {
     setIsRunning(true);
+    setIsLapOn(false);
   };
   const stopHandle = () => {
     setIsRunning(false);
+    setIsLapOn(true);
+
   };
 
   const lapHandle = () => {
@@ -45,14 +50,27 @@ export const Stopwatch = () => {
     setLapTime(0);
     setLapsTable([]);
   };
+
   return (
     <>
       <div className={stopwatchStyles.stopwatch}>
         <TotalTime totalTime={totalTime} />
         <LapTime lapTime={lapTime} />
-        <ButtonsComponent startHandle={startHandle} stopHandle={stopHandle} lapHandle={lapHandle} resetHandle={resetHandle}/>
+        <ButtonsComponent
+          startHandle={startHandle}
+          stopHandle={stopHandle}
+          lapHandle={lapHandle}
+          resetHandle={resetHandle}
+          isLapOn={isLapOn}
+        />
       </div>
-      <LapsTable lapsTable={lapsTable} />
+      {isRunning === false && (
+        <Summary
+          totalTime={totalTime}
+          lapsTable={lapsTable}
+        />
+      )}
+      {isRunning === true && <LapsTable lapsTable={lapsTable} />}
     </>
   );
 };
