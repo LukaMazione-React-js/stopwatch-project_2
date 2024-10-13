@@ -1,11 +1,11 @@
 import { formatTime } from '../utils/formatTime';
 
 type TotalTimeProps = {
-  totalTime: number
-}
+  totalTime: number;
+};
 
-export const TotalTime = ({totalTime}: TotalTimeProps) => {
-return <>
-  <h2>Total time: {formatTime(totalTime)}</h2>
-</>
-}
+export const TotalTime = ({ totalTime }: TotalTimeProps) => {
+  const totalTimeLaps = formatTime(totalTime);
+
+  return <h2>Total time: {totalTimeLaps}</h2>;
+};

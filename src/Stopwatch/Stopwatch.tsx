@@ -37,7 +37,6 @@ export const Stopwatch = () => {
   const stopHandle = () => {
     setIsRunning(false);
     setIsLapOn(true);
-
   };
 
   const lapHandle = () => {
@@ -64,7 +63,7 @@ export const Stopwatch = () => {
           isLapOn={isLapOn}
         />
       </div>
-      {isRunning === false && (
+      {!isRunning && (
         <Summary
           totalTime={totalTime}
           lapsTable={lapsTable}

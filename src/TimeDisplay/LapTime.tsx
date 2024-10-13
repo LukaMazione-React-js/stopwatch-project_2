@@ -1,11 +1,10 @@
 import { formatTime } from '../utils/formatTime';
 
 type LapTimeProps = {
-  lapTime: number
-}
+  lapTime: number;
+};
 
-export const LapTime = ({lapTime}: LapTimeProps) => {
-return <>
-  <h2>Lap time: {formatTime(lapTime)}</h2>
-</>
-}
+export const LapTime = ({ lapTime }: LapTimeProps) => {
+  const singleLapTime = formatTime(lapTime);
+  return <h2>Lap time: {singleLapTime}</h2>;
+};
