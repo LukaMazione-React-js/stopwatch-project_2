@@ -84,6 +84,29 @@ export const LapEntry = ({ lap }: LapEntryProps) => {
 
 - The approach improves code organization and separation of concerns. `LapsTable` manages the structure of the table, while `LapEntry` is responsible for rendering individual rows.
 
+## Folder Structure
+/src
+  /Button
+    - Button.tsx
+    - ButtonsComponent.tsx
+    - button.module.scss
+  /Laps
+    - LapsTable.tsx
+    - LapEntry.tsx
+    - lapsTable.module.scss
+    - lapEntry.module.scss
+  /Stopwatch
+    - Stopwatch.tsx
+    - stopwatch.module.scss
+  /Summary
+    - Summary.tsx
+    - summary.module.scss
+  /TimeDisplay
+    - LapTime.tsx
+    - TotalTime.tsx
+  /utils
+    - formatTime.ts
+
 
 ## Conclusion
 This project demonstrates my ability to build a modular and scalable React application using TypeScript and SCSS. By focusing on separation of concerns, prop passing, and dynamic rendering, I have created a stopwatch application that efficiently tracks time and provides detailed lap summaries.
